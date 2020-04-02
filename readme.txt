@@ -1,13 +1,12 @@
 === Block Pattern Builder ===
 
 Contributors: greenshady
-Donate link: https://themehybrid.com/donate
 Tags: block-editor
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
 Stable tag: 1.0.0
-License: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+License: GPLv2 or later
 
 Create custom block patterns from the WordPress admin. No coding required.
 
@@ -44,7 +43,9 @@ Yes, certainly.  You can build the patterns via the admin.  Then, go to the code
 
 == Screenshots ==
 
-1. // todo
+1. Block Patterns management screen.
+2. Creating a custom block pattern.
+3. Inserting a block pattern into the post editor.
 
 == Changelog ==
 

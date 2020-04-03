@@ -13,12 +13,12 @@ namespace BlockPatternBuilder;
 
 use WP_Query;
 
-# Don't execute code if file is file is accessed directly.
+# Don't execute code if file is accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 // For now, we're just going to load these up on the post editing screen so that
 // we're not running a query on every page of the site. In the future, we should
-// implement some caching so that the patterns. There may be a more suitable hook
+// implement some caching for the patterns. There may be a more suitable hook
 // to only load when the block editor is present.
 add_action( 'load-post.php',     __NAMESPACE__ . '\\register_patterns' );
 add_action( 'load-post-new.php', __NAMESPACE__ . '\\register_patterns' );

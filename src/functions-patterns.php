@@ -32,8 +32,8 @@ add_action( 'load-post-new.php', __NAMESPACE__ . '\\register_patterns' );
  */
 function register_patterns() {
 
-	// Bail if the Block Pattern API doesn't exist.
-	if ( ! function_exists( 'register_pattern' ) ) {
+	// Bail if the Block Pattern API doesn't exist in either pre- or post-Gutenberg 8.1.0 format.
+	if ( ! function_exists( 'register_block_pattern' ) && ! function_exists( 'register_pattern' ) ) {
 		return;
 	}
 
@@ -49,13 +49,24 @@ function register_patterns() {
 			$patterns->the_post();
 			global $post;
 
-			register_pattern(
-				sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
-				[
-					'title'   => wp_strip_all_tags( $post->post_title ),
-					'content' => $post->post_content
-				]
-			);
+			if ( function_exists( 'register_block_pattern' ) ) {
+				register_block_pattern(
+					sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
+					[
+						'title'   => wp_strip_all_tags( $post->post_title ),
+						'content' => $post->post_content
+					]
+				);
+			} else {
+				register_pattern(
+					sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
+					[
+						'title'   => wp_strip_all_tags( $post->post_title ),
+						'content' => $post->post_content
+					]
+				);
+			}
+
 		}
 	}
 

@@ -32,8 +32,19 @@ add_action( 'load-post-new.php', __NAMESPACE__ . '\\register_patterns' );
  */
 function register_patterns() {
 
-	// Bail if the Block Pattern API doesn't exist.
-	if ( ! function_exists( 'register_pattern' ) ) {
+	$register = false;
+
+	// Assign pattern registration function for Gutenberg 8.1.0+.
+	if ( function_exists( 'register_block_pattern' ) ) {
+		$register = 'register_block_pattern';
+
+	// Old registration function pre-8.1.0.
+	} elseif ( function_exists( 'register_pattern' ) ) {
+		$register = 'register_pattern';
+	}
+
+	// Bail if Block Patterns API doesn't exist.
+	if ( ! $register ) {
 		return;
 	}
 
@@ -49,7 +60,7 @@ function register_patterns() {
 			$patterns->the_post();
 			global $post;
 
-			register_pattern(
+			$register(
 				sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
 				[
 					'title'   => wp_strip_all_tags( $post->post_title ),

@@ -39,13 +39,15 @@ const BlockPatternBuilder = () => {
 	const onSave = () => {
 		setLoading( true );
 
-		const post = new wp.api.models.Bpb_pattern( {
-			title,
-			content,
-			status: 'publish'
-		} );
-
-		post.save().done( () => {
+		wp.apiRequest( {
+			path: 'wp/v2/bpb_pattern',
+			method: 'POST',
+			data: {
+				title,
+				content,
+				status: 'publish'
+			}
+		} ).then( post => {
 			setLoading( false );
 			setOpen( false );
 			setTitle( '' );
@@ -65,11 +67,11 @@ const BlockPatternBuilder = () => {
 
 			{ isOpen && (
 				<Modal
-					title={ 'New Pattern' }
+					title={ __( 'New Pattern' ) }
 					onRequestClose={ () => setOpen( false ) }
 				>
 					<TextControl
-						label={ 'Pattern Title' }
+						label={ __( 'Pattern Title' ) }
 						value={ title }
 						onChange={ setTitle }
 					/>
@@ -80,7 +82,7 @@ const BlockPatternBuilder = () => {
 						isBusy={ isLoading }
 						onClick={ onSave }
 					>
-						{ 'Save' }
+						{ __( 'Save' ) }
 					</Button>
 				</Modal>
 			) }

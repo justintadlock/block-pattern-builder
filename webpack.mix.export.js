@@ -13,6 +13,10 @@ let files = [
 	'license.md',
 	'plugin.php',
 	'readme.md',
+	'readme.txt',
+	'screenshot-1.png',
+	'screenshot-2.png',
+	'screenshot-3.jpg',
 	'uninstall.php'
 ];
 

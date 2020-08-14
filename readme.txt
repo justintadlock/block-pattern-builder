@@ -5,7 +5,7 @@ Tags: block-editor
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 
 Create custom block patterns from the WordPress admin. No coding required.
@@ -26,6 +26,8 @@ After installing and activating the plugin, you should see a new "Block Patterns
 The idea with patterns is to create a reusable pattern or section of blocks that you will use later.  Once you publish a pattern, it will be available within the pattern library.
 
 Now, go to any post or page.  Click on the pattern icon.  At the time of writing, that icon is in the top right corner of the block editor, but this will surely change in future versions of Gutenberg and WordPress.  After clicking on the icon, you should see your custom pattern in the pattern library/list.  Click on it.  It will be inserted into your post.
+
+As of version 1.1.0, users can create a block pattern directly from the editor. Click on the "more options" button (ellipsis icon) in the editor toolbar with at least one block selected.  Then, click the "Add to Block Patterns" option.
 
 == Frequently Asked Questions ==
 

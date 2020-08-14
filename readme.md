@@ -15,6 +15,8 @@ The idea with patterns is to create a reusable pattern or section of blocks that
 
 Now, go to any post or page.  Click on the pattern icon.  At the time of writing, that icon is in the top right corner of the block editor, but this will surely change in future versions of Gutenberg and WordPress.  After clicking on the icon, you should see your custom pattern in the pattern library/list.  Click on it.  It will be inserted into your post.
 
+As of version 1.1.0, users can create a block pattern directly from the editor. Click on the "more options" button (ellipsis icon) in the editor toolbar with at least one block selected.  Then, click the "Add to Block Patterns" option.
+
 ## Copyright and License
 
 This project is licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.

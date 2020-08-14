@@ -3,7 +3,7 @@
  * Plugin Name:       Block Pattern Builder
  * Plugin URI:        https://github.com/justintadlock/block-pattern-builder
  * Description:       Allows users to create custom block patterns from the WordPress admin. Requires version 7.8+ of the Gutenberg plugin.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 5.0
  * Requires PHP:      5.6
  * Author:            Justin Tadlock

@@ -1,32 +1,37 @@
 {
-  "name": "block-pattern-builder",
-  "version": "1.0.0",
-  "description": "Build block patterns from the WordPress admin.",
-  "main": "index.js",
-  "scripts": {
-    "build": "wp-scripts build",
-    "format:js": "wp-scripts format-js",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "packages-update": "wp-scripts packages-update",
-    "start": "wp-scripts start"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/justintadlock/block-pattern-builder.git"
-  },
-  "keywords": [
-    "wordpress",
-    "block-editor",
-    "block-patterns"
-  ],
-  "author": "Justin Tadlock",
-  "license": "GPL-2.0",
-  "bugs": {
-    "url": "https://github.com/justintadlock/block-pattern-builder/issues"
-  },
-  "homepage": "https://github.com/justintadlock/block-pattern-builder#readme",
-  "devDependencies": {
-    "@wordpress/scripts": "^7.2.0"
-  }
+        "name": "block-pattern-builder",
+        "version": "1.0.0",
+        "description": "Build block patterns from the WordPress admin.",
+        "main": "",
+        "scripts": {
+                "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+                "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+                "prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+                "export": "cross-env export=1 NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+                "i18n": "npm run i18n:textdomain && npm run i18n:pot",
+                "i18n:textdomain": "npx wpi18n addtextdomain --exclude=vendor,node_modules",
+                "i18n:pot": "npx wpi18n makepot --domain-path=/resources/lang"
+        },
+        "repository": {
+                "type": "git",
+                "url": "git+https://github.com/justintadlock/block-pattern-builder.git"
+        },
+        "author": "Justin Tadlock",
+        "license": "GPL-2.0",
+        "bugs": {
+                "url": "https://github.com/justintadlock/block-pattern-builder/issues"
+        },
+        "homepage": "https://github.com/justintadlock/block-pattern-builder#readme",
+        "devDependencies": {
+                "@babel/preset-react": "^7.0.0",
+                "cross-env": "^5.2.0",
+                "laravel-mix": "^4.0.16",
+                "node-wp-i18n": "^1.2.3",
+                "postcss-preset-env": "^6.6.0",
+                "rimraf": "^3.0.0",
+                "sass": "^1.22.0",
+                "sass-loader": "^7.1.0",
+                "vue-template-compiler": "^2.6.10"
+        },
+        "dependencies": {}
 }

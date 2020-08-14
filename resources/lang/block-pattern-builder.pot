@@ -1,0 +1,214 @@
+# Copyright (C) 2020 Justin Tadlock
+# This file is distributed under the same license as the Block Pattern Builder package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Block Pattern Builder 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/block-pattern-builder\n"
+"POT-Creation-Date: 2020-08-14 12:09:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: node-wp-i18n 1.2.3\n"
+
+#: src/Editor.php:78
+msgid "Block Pattern created."
+msgstr ""
+
+#: src/Editor.php:79
+msgid "Add to Block Patterns"
+msgstr ""
+
+#: src/Editor.php:80 src/functions-post-types.php:84
+#: src/functions-post-types.php:87
+msgid "New Pattern"
+msgstr ""
+
+#: src/Editor.php:81
+msgid "Pattern Title"
+msgstr ""
+
+#: src/Editor.php:82
+msgid "Save"
+msgstr ""
+
+#: src/functions-post-types.php:80 src/functions-post-types.php:93
+msgid "Patterns"
+msgstr ""
+
+#: src/functions-post-types.php:81 src/functions-post-types.php:83
+msgid "Pattern"
+msgstr ""
+
+#: src/functions-post-types.php:82
+msgid "Block Patterns"
+msgstr ""
+
+#: src/functions-post-types.php:85
+msgid "Add New Pattern"
+msgstr ""
+
+#: src/functions-post-types.php:86
+msgid "Edit Pattern"
+msgstr ""
+
+#: src/functions-post-types.php:88
+msgid "View Pattern"
+msgstr ""
+
+#: src/functions-post-types.php:89
+msgid "View Patterns"
+msgstr ""
+
+#: src/functions-post-types.php:90
+msgid "Search Patterns"
+msgstr ""
+
+#: src/functions-post-types.php:91
+msgid "No patterns found"
+msgstr ""
+
+#: src/functions-post-types.php:92
+msgid "No patterns found in trash"
+msgstr ""
+
+#: src/functions-post-types.php:94
+msgid "Pattern Image"
+msgstr ""
+
+#: src/functions-post-types.php:95
+msgid "Set pattern image"
+msgstr ""
+
+#: src/functions-post-types.php:96
+msgid "Remove pattern image"
+msgstr ""
+
+#: src/functions-post-types.php:97
+msgid "Use as pattern image"
+msgstr ""
+
+#: src/functions-post-types.php:98
+msgid "Insert into pattern"
+msgstr ""
+
+#: src/functions-post-types.php:99
+msgid "Uploaded to this pattern"
+msgstr ""
+
+#: src/functions-post-types.php:100
+msgid "Filter patterns list"
+msgstr ""
+
+#: src/functions-post-types.php:101
+msgid "Patterns list navigation"
+msgstr ""
+
+#: src/functions-post-types.php:102
+msgid "Patterns list"
+msgstr ""
+
+#: src/functions-post-types.php:132
+msgid "Enter pattern name"
+msgstr ""
+
+#: src/functions-post-types.php:160
+#. Translators: Scheduled pattern date format. See http:php.net/date
+msgid "M j, Y @ H:i"
+msgstr ""
+
+#: src/functions-post-types.php:163 src/functions-post-types.php:164
+msgid "Preview pattern"
+msgstr ""
+
+#: src/functions-post-types.php:165
+msgid "View pattern"
+msgstr ""
+
+#: src/functions-post-types.php:169 src/functions-post-types.php:170
+msgid "Pattern updated."
+msgstr ""
+
+#: src/functions-post-types.php:172
+#. Translators: %s is the date and time of the revision.
+msgid "Pattern restored to revision from %s."
+msgstr ""
+
+#: src/functions-post-types.php:173
+msgid "Pattern published."
+msgstr ""
+
+#: src/functions-post-types.php:174
+msgid "Pattern saved."
+msgstr ""
+
+#: src/functions-post-types.php:175
+msgid "Pattern submitted."
+msgstr ""
+
+#: src/functions-post-types.php:176
+msgid "Pattern scheduled for: %s."
+msgstr ""
+
+#: src/functions-post-types.php:177
+msgid "Pattern draft updated."
+msgstr ""
+
+#: src/functions-post-types.php:196
+msgid "%s pattern updated."
+msgid_plural "%s patterns updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/functions-post-types.php:197
+msgid "%s pattern not updated, somebody is editing it."
+msgid_plural "%s patterns not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/functions-post-types.php:198
+msgid "%s pattern permanently deleted."
+msgid_plural "%s patterns permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/functions-post-types.php:199
+msgid "%s pattern moved to the Trash."
+msgid_plural "%s patterns moved to the trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/functions-post-types.php:200
+msgid "%s pattern restored from the Trash."
+msgid_plural "%s patterns restored from the trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: uninstall.php:14
+msgid "%s should only be called when uninstalling the plugin."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Block Pattern Builder"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/justintadlock/block-pattern-builder"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Allows users to create custom block patterns from the WordPress admin. "
+"Requires version 7.8+ of the Gutenberg plugin."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Justin Tadlock"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://justintadlock.com"
+msgstr ""

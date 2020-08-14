@@ -23,11 +23,6 @@ namespace BlockPatternBuilder;
 # Don't execute code if file is file is accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-# Define constants.
-define( 'BPB_VERSION', '1.0.1' );
-define( 'BPB_DEBUG', false );
-define( 'BPB_ABSURL', plugins_url( '/', __FILE__ ) );
-
 /**
  * Registers the plugin activation callback.
  *
@@ -40,7 +35,31 @@ register_activation_hook( __FILE__, function() {
 	Activator::activate();
 } );
 
+/**
+ * Wrapper for the plugin instance.
+ *
+ * @since  1.1.0
+ * @access public
+ * @return void
+ */
+function plugin() {
+	static $instance = null;
+
+	if ( is_null( $instance ) ) {
+		$instance = new Plugin(
+			__DIR__,
+			plugin_dir_url( __FILE__ )
+		);
+	}
+
+	return $instance;
+}
+
 # Bootstrap plugin.
+require_once 'src/Editor.php';
+require_once 'src/Plugin.php';
 require_once 'src/functions-post-types.php';
 require_once 'src/functions-patterns.php';
-require_once 'src/functions-scripts.php';
+
+# Boot the plugin.
+plugin()->boot();

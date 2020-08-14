@@ -1,6 +1,8 @@
 /**
  * WordPress dependencies.
  */
+const { labels } = blockPatternBuilder;
+
 const { __ } = wp.i18n;
 
 const { serialize } = wp.blocks;
@@ -51,7 +53,7 @@ const BlockPatternBuilder = () => {
 			setLoading( false );
 			setOpen( false );
 			setTitle( '' );
-			createSuccessNotice( __( 'Block Pattern created.' ), {
+			createSuccessNotice( labels.createSuccessNotice, {
 				type: 'snackbar',
 			} );
 		} );
@@ -60,18 +62,18 @@ const BlockPatternBuilder = () => {
 	return (
 		<>
 			<PluginBlockSettingsMenuItem
-				label={ __( 'Add to Block Patterns' ) }
+				label={ labels.menuItem }
 				icon={ 'none' } // We don't want an icon, as new UI of Gutenberg does't have icons for Menu Items, but the component doesn't allow that so we pass an icon which doesn't exist.
 				onClick={ () => setOpen( true ) }
 			/>
 
 			{ isOpen && (
 				<Modal
-					title={ __( 'New Pattern' ) }
+					title={ labels.modalTitle }
 					onRequestClose={ () => setOpen( false ) }
 				>
 					<TextControl
-						label={ __( 'Pattern Title' ) }
+						label={ labels.modalTextControl }
 						value={ title }
 						onChange={ setTitle }
 					/>
@@ -82,7 +84,7 @@ const BlockPatternBuilder = () => {
 						isBusy={ isLoading }
 						onClick={ onSave }
 					>
-						{ __( 'Save' ) }
+						{ labels.modalButton }
 					</Button>
 				</Modal>
 			) }

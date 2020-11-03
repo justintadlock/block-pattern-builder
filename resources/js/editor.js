@@ -10,7 +10,9 @@ const { serialize } = wp.blocks;
 const {
 	Button,
 	Modal,
-	TextControl
+	TextControl,
+	FormTokenField,
+	__experimentalNumberControl: NumberControl,
 } = wp.components;
 
 const {
@@ -18,30 +20,31 @@ const {
 	useDispatch
 } = wp.data;
 
-const { PluginBlockSettingsMenuItem } = wp.editPost;
+const { PluginBlockSettingsMenuItem, PluginDocumentSettingPanel } = wp.editPost;
 
 const { useState } = wp.element;
 
 const { registerPlugin } = wp.plugins;
 
 const BlockPatternBuilder = () => {
-	const [ isOpen, setOpen ] = useState( false );
-	const [ isLoading, setLoading ] = useState( false );
-	const [ title, setTitle ] = useState( '' );
+	const [isOpen, setOpen] = useState(false);
+	const [isLoading, setLoading] = useState(false);
+	const [title, setTitle] = useState('');
+	const [keywords, setKeywords] = useState([]);
 
-	const content = useSelect( ( select ) => {
-		const { getSelectedBlockCount, getSelectedBlock, getMultiSelectedBlocks } = select( 'core/block-editor' );
+	const content = useSelect((select) => {
+		const { getSelectedBlockCount, getSelectedBlock, getMultiSelectedBlocks } = select('core/block-editor');
 		const blocks = 1 === getSelectedBlockCount() ? getSelectedBlock() : getMultiSelectedBlocks();
 
-		return serialize( blocks );
-	}, [] );
+		return serialize(blocks);
+	}, []);
 
-	const { createSuccessNotice } = useDispatch( 'core/notices' );
+	const { createSuccessNotice } = useDispatch('core/notices');
 
 	const onSave = () => {
-		setLoading( true );
+		setLoading(true);
 
-		wp.apiRequest( {
+		wp.apiRequest({
 			path: 'wp/v2/bpb_pattern',
 			method: 'POST',
 			data: {
@@ -49,49 +52,67 @@ const BlockPatternBuilder = () => {
 				content,
 				status: 'publish'
 			}
-		} ).then( post => {
-			setLoading( false );
-			setOpen( false );
-			setTitle( '' );
-			createSuccessNotice( labels.createSuccessNotice, {
+		}).then(post => {
+			setLoading(false);
+			setOpen(false);
+			setTitle('');
+			createSuccessNotice(labels.createSuccessNotice, {
 				type: 'snackbar',
-			} );
-		} );
+			});
+		});
 	};
 
 	return (
 		<>
 			<PluginBlockSettingsMenuItem
-				label={ labels.menuItem }
-				icon={ 'none' } // We don't want an icon, as new UI of Gutenberg does't have icons for Menu Items, but the component doesn't allow that so we pass an icon which doesn't exist.
-				onClick={ () => setOpen( true ) }
+				label={labels.menuItem}
+				icon={'none'} // We don't want an icon, as new UI of Gutenberg does't have icons for Menu Items, but the component doesn't allow that so we pass an icon which doesn't exist.
+				onClick={() => setOpen(true)}
 			/>
 
 			{ isOpen && (
 				<Modal
-					title={ labels.modalTitle }
-					onRequestClose={ () => setOpen( false ) }
+					title={labels.modalTitle}
+					onRequestClose={() => setOpen(false)}
 				>
 					<TextControl
-						label={ labels.modalTextControl }
-						value={ title }
-						onChange={ setTitle }
+						label={labels.modalTextControl}
+						value={title}
+						onChange={setTitle}
 					/>
 
 					<Button
 						isPrimary
-						isPressed={ isLoading }
-						isBusy={ isLoading }
-						onClick={ onSave }
+						isPressed={isLoading}
+						isBusy={isLoading}
+						onClick={onSave}
 					>
-						{ labels.modalButton }
+						{labels.modalButton}
 					</Button>
 				</Modal>
-			) }
+			)}
+
+			<PluginDocumentSettingPanel
+				name="pattern-builder"
+				title="Pattern Settings"
+				className="pbp-panel"
+			>
+				<NumberControl
+					label="Viewport Width"
+					isShiftStepEnabled={true}
+					shiftStep={10}
+				/>
+
+				<FormTokenField
+					label="Keywords"
+					value={keywords}
+					onChange={keywords => setKeywords(keywords)}
+				/>
+			</PluginDocumentSettingPanel>
 		</>
 	);
 };
 
-registerPlugin( 'block-pattern-builder', {
+registerPlugin('block-pattern-builder', {
 	render: BlockPatternBuilder
 });

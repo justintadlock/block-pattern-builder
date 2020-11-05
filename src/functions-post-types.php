@@ -114,7 +114,8 @@ function register_post_types() {
 		'supports' => [
 			'title',
 			'editor',
-			'excerpt'
+			'excerpt',
+			'custom-fields'
 		]
 	];
 

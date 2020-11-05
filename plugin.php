@@ -59,6 +59,7 @@ function plugin() {
 require_once 'src/Editor.php';
 require_once 'src/Plugin.php';
 require_once 'src/functions-post-types.php';
+require_once 'src/functions-meta.php';
 require_once 'src/functions-patterns.php';
 
 # Boot the plugin.

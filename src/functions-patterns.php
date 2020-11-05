@@ -65,6 +65,7 @@ function register_patterns() {
 				[
 					'title'         => wp_strip_all_tags( $post->post_title ),
 					'content'       => $post->post_content,
+					'description'   => $post->post_excerpt,
 					'viewportWidth' => $post->bpb_viewport_width,
 					'keywords'      => $post->bpb_keywords,
 				]

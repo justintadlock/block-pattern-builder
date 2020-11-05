@@ -50,6 +50,7 @@ class Editor {
                                 'wp-blocks',
                                 'wp-components',
                                 'wp-data',
+                                'wp-core-data',
                                 'wp-edit-post',
                                 'wp-element',
                                 'wp-plugins'

@@ -63,8 +63,10 @@ function register_patterns() {
 			$register(
 				sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
 				[
-					'title'   => wp_strip_all_tags( $post->post_title ),
-					'content' => $post->post_content
+					'title'         => wp_strip_all_tags( $post->post_title ),
+					'content'       => $post->post_content,
+					'viewportWidth' => $post->bpb_viewport_width,
+					'keywords'      => $post->bpb_keywords,
 				]
 			);
 		}

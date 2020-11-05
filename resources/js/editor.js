@@ -20,6 +20,10 @@ const {
 	useDispatch
 } = wp.data;
 
+const {
+	useEntityProp
+} = wp.coreData
+
 const { PluginBlockSettingsMenuItem, PluginDocumentSettingPanel } = wp.editPost;
 
 const { useState } = wp.element;
@@ -30,7 +34,6 @@ const BlockPatternBuilder = () => {
 	const [isOpen, setOpen] = useState(false);
 	const [isLoading, setLoading] = useState(false);
 	const [title, setTitle] = useState('');
-	const [keywords, setKeywords] = useState([]);
 
 	const content = useSelect((select) => {
 		const { getSelectedBlockCount, getSelectedBlock, getMultiSelectedBlocks } = select('core/block-editor');
@@ -40,6 +43,9 @@ const BlockPatternBuilder = () => {
 	}, []);
 
 	const { createSuccessNotice } = useDispatch('core/notices');
+
+	const [meta, setMeta] = useEntityProp('postType', 'bpb_pattern', 'meta');
+	const {bpb_viewport_width, bpb_keywords} = meta;
 
 	const onSave = () => {
 		setLoading(true);
@@ -96,17 +102,20 @@ const BlockPatternBuilder = () => {
 				name="pattern-builder"
 				title="Pattern Settings"
 				className="pbp-panel"
+				icon={'none'}
 			>
 				<NumberControl
+					value={bpb_viewport_width}
 					label="Viewport Width"
 					isShiftStepEnabled={true}
 					shiftStep={10}
+					onChange={(width) => setMeta({bpb_viewport_width: width})}
 				/>
 
 				<FormTokenField
 					label="Keywords"
-					value={keywords}
-					onChange={keywords => setKeywords(keywords)}
+					value={bpb_keywords}
+					onChange={(keywords) => setMeta({bpb_keywords: keywords})}
 				/>
 			</PluginDocumentSettingPanel>
 		</>

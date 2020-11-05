@@ -27,14 +27,22 @@ add_action('init', __NAMESPACE__ . '\\register_pattern_meta');
  */
 function register_pattern_meta() {
 	register_post_meta('bpb_pattern', 'bpb_viewport_width', [
-		'show_in_rest' => true,
+		'show_in_rest' => [
+			'schema' => [
+				'type'    => 'integer',
+				'default' => 800,
+			],
+		],
 		'single'       => true,
-		'type'         => 'string',
 	]);
 
 	register_post_meta('bpb_pattern', 'bpb_keywords', [
-		'show_in_rest' => true,
+		'show_in_rest' => [
+			'schema' => [
+				'type'    => 'array',
+				'default' => [],
+			],
+		],
 		'single'       => true,
-		'type'         => 'string',
 	]);
 }

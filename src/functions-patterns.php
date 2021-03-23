@@ -54,11 +54,13 @@ function register_patterns() {
 		'fields'   => 'all',
  	] );
 
-	foreach ( $pattern_categories->terms as $term ) {
-		register_block_pattern_category(
-			$term->name,
-			[ 'label' => $term->slug ]
-		);
+	if( $pattern_categories->terms ) {
+		foreach ( $pattern_categories->terms as $term ) {
+			register_block_pattern_category(
+				$term->name,
+				[ 'label' => $term->slug ]
+			);
+		}
 	}
 
 	// Query all published patterns.

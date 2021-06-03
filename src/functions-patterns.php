@@ -51,7 +51,7 @@ function register_patterns() {
 	// Query all published patterns.
 	$patterns = new WP_Query( [
 		'post_type'    => 'bpb_pattern',
-		'number_posts' => -1
+		'posts_per_page' => -1
 	] );
 
 	if ( $patterns->have_posts() ) {

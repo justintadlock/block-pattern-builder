@@ -1,6 +1,7 @@
 {
-	"name": "justintadlock/block-pattern-builder",
-	"description": "Block Pattern Builder", 
-	"type": "wordpress-plugin",
-	"license": "GNU General Public License v2.0"
+  "name": "humanmade/block-pattern-builder",
+  "description": "forked from justintadlock/block-pattern-builder",
+  "type": "wordpress-plugin",
+  "license": "GPL 2+",
+  "require": {}
 }

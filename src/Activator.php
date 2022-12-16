@@ -47,6 +47,7 @@ class Activator {
 			$role->add_cap( 'bpb_delete_private_patterns'   );
 			$role->add_cap( 'bpb_delete_published_patterns' );
 			$role->add_cap( 'bpb_delete_others_patterns'    );
+			$role->add_cap( 'bpb_manage_categories'         );
 		}
 	}
 }

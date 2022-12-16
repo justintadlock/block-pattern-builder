@@ -11,7 +11,7 @@
 
 namespace BlockPatternBuilder;
 
-use WP_Query;
+use WP_Query, WP_Term_Query;
 
 # Don't execute code if file is accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -48,6 +48,21 @@ function register_patterns() {
 		return;
 	}
 
+	// Query all pattern categories.
+	$pattern_categories = new WP_Term_Query( [
+		'taxonomy' => 'bpb_pattern_category',
+		'fields'   => 'all',
+ 	] );
+
+	if( $pattern_categories->terms ) {
+		foreach ( $pattern_categories->terms as $term ) {
+			register_block_pattern_category(
+				$term->name,
+				[ 'label' => $term->slug ]
+			);
+		}
+	}
+
 	// Query all published patterns.
 	$patterns = new WP_Query( [
 		'post_type'    => 'bpb_pattern',
@@ -60,11 +75,14 @@ function register_patterns() {
 			$patterns->the_post();
 			global $post;
 
+			$pattern_categories = wp_get_post_terms( $post->ID, 'bpb_pattern_category', [ 'fields' => 'slugs' ] );
+
 			$register(
 				sprintf( 'bpb/%s', sanitize_key( $post->post_name ) ),
 				[
 					'title'       => wp_strip_all_tags( $post->post_title ),
 					'content'     => $post->post_content,
+					'categories'  => $pattern_categories
 					'description' => $post->post_excerpt
 				]
 			);
